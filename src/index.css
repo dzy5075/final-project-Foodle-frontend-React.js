@@ -9,5 +9,105 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
+}
+
+.logo{
+  display: block;
+  margin-top:200px;
+  margin-bottom:20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bar{
+  margin:0 auto;
+  width:600px;
+  border-radius:35px;
+  border:1px solid #dcdcdc;
+}
+.bar:hover{
+  box-shadow: 1px 1px 8px 1px #dcdcdc;
+}
+.bar:focus-within{
+  box-shadow: 1px 1px 8px 1px #dcdcdc;
+  outline:none;
+}
+.searchbar{
+  height:45px;
+  border:none;
+  width:500px;
+  font-size:16px;
+  outline: none;
+  margin-left: 25px;
+  
+}
+
+.nav-logo{
+  height: 80px;
+
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+#home-search{
+  height: 40px;
+  width: 100px;
+}
+
+.categoryfilter{
+margin-right: 10px;
+height: 30px;
+width: 150px;
+
+}
+
+.allergyfilter{
+margin-right: 100px;
+height: 30px;
+width: 150px;
+}
+
+.recipe{
+  display: flexbox;
+  width: 400px;
+  height: 400px;
+  float:left;
+  margin:1rem;
+  padding:1rem;
+  border-style: ridge;
+  border-radius: 10%;
+  margin-left: 2rem;
+}
+.recipe > img{
+  height:350px;
+  padding-left: 1.7rem;
+  margin-top: 1px;
+}
+.recipe > figcaption{
+  text-align: center;
+  font-size: 25px;
+  font-family: Helvetica;
+}
+
+#recipe-page{
+  height:100vw;
+  width:100vw; 
+  display: flexbox;
+  flex-direction: column;
+  
+}
+
+.single-recipe>img{
+  width: 475px;
+  margin-left: 1rem;
+}
+
+.nav-bar{
+  margin-bottom: 100px;
 }
