@@ -1,42 +1,78 @@
-import React from 'react'
-import { useNavigate } from "react-router-dom";
-import {useEffect, useState} from "react";
+import React from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Search from "./Search";
 
-export default function RecipesPage({fetchSingleRecipe}) {
-let navigate = useNavigate();
+export default function RecipesPage({ fetchSingleRecipe }) {
+  let navigate = useNavigate();
 
-const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState([]);
+  // const [search, setSearch] = useState("")
+  const [categoryFilter, setCategoryFilter] = useState("All");
+  let [searchParams, setSearchParams] = useSearchParams();
+  const search = searchParams.get("search") || "";
+  const fetchRecipe = async () => {
+    let req = await fetch("/recipes");
+    let res = await req.json();
+    setRecipes(res);
+  };
 
-const fetchRecipe = async() => {
-    let req = await fetch('/recipes')
-    let res   = await req.json()        
-    setRecipes(res)
-} 
+  useEffect(() => {
+    fetchRecipe();
+  }, []);
 
-useEffect(() =>{
-    fetchRecipe()
-},[])
+  const filteredRecipes = recipes.filter((recipe) => {
+    return recipe.name.toLowerCase().includes(search.toLowerCase());
+  });
 
-return(
-    <>
-     {recipes.map((recipe) =>{ 
-         return(
+  const categoryFilteredRecipes = filteredRecipes.filter((recipe) => {
+    if (categoryFilter === "All") return true;
 
-                 <figure className = 'recipe' key = {recipe.id} id = {recipe.id}>
-                     <img className ="thumbnail-img" src={recipe.image}  
-                        onClick={(e) => {
-                            console.log(recipe.id)
-                            fetchSingleRecipe(recipe.id)
-                            navigate('/recipe')
-                     }
-                     }alt=""></img>
-                     <figcaption>{recipe.name}</figcaption>
-                     {/* <button className= "buttons" onClick={() => }>Recipe Info</button> */}
-                 </figure>
-                 )
-     })}
+    return recipe.category === categoryFilter;
+  });
 
+  return (
+    <div className="recipe-page">
+      <Search
+        search={search}
+        setSearch={(value) => {
+          searchParams.set("search", value);
+          setSearchParams(searchParams);
+        }}
+        setCategoryFilter={setCategoryFilter}
+      />
+      <div className="display-recipes">
+        {categoryFilteredRecipes.map((recipe) => {
+          return (
+            <DisplayRecipes
+              fetchSingleRecipe={fetchSingleRecipe}
+              key={recipe.id}
+              recipe={recipe}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
-     </>
- )
+function DisplayRecipes({ fetchSingleRecipe, recipe }) {
+  let navigate = useNavigate();
+
+  return (
+    <figure className="recipe" key={recipe.id} id={recipe.id}>
+      <img
+        className="thumbnail-img"
+        src={recipe.image}
+        onClick={(e) => {
+          console.log(recipe.id);
+          fetchSingleRecipe(recipe.id);
+          navigate("/recipe");
+        }}
+        alt=""
+      ></img>
+      <figcaption>{recipe.name}</figcaption>
+      {/* <button className= "buttons" onClick={() => }>Recipe Info</button> */}
+    </figure>
+  );
 }

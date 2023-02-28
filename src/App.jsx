@@ -6,13 +6,13 @@ import LoginPage from "./components/LoginPage";
 import Home from "./components/Home";
 import RecipesPage from "./components/RecipesPage";
 import Recipe from "./components/Recipe";
+import Favorites from "./components/Favorites";
 
 
 function App() {
 
-  //global states that sibiling compnenets may need to access
+  //global states that sibiling components may need to access
   const [loggedInUser, setLoggedInUser] = useState(null)
-  const [clickedBar, setClickedBar] = useState()
   const [singleRecipe, setSingleRecipe] = useState([])
 
   
@@ -29,13 +29,14 @@ function App() {
         
         // if(!setLoggedInUser)  return <LoginPage setLoggedInUser={setLoggedInUser} />
         
-        function fetchSingleRecipe(id) {
-            
-            fetch(`/recipes/${id}`)
-            .then(res => res.json())
-            .then(res => setSingleRecipe(res))
-          }
-          console.log(singleRecipe)
+  //fetch single recipes for individual pages
+  function fetchSingleRecipe(id) {
+      
+      fetch(`/recipes/${id}`)
+      .then(res => res.json())
+      .then(res => setSingleRecipe(res))
+    }
+    // console.log(singleRecipe)
 
   //all the routes
   const router = createBrowserRouter([
@@ -47,7 +48,7 @@ function App() {
       path:"/",
       element: 
       <>
-      <Home/>
+      <Home singleRecipe={singleRecipe}/>
       </>
     },{
       path: "/newuser",
@@ -79,6 +80,13 @@ function App() {
       <>
       <NavBar/>
       <Recipe fetchSingleRecipe={fetchSingleRecipe} singleRecipe={singleRecipe}/>
+      </>
+    },{
+      path: "/Favorites",
+      element: 
+      <>
+      <NavBar/>
+      <Favorites/>
       </>
     }
   ])
