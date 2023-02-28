@@ -20,6 +20,7 @@ export default function Recipe({singleRecipe}) {
 
         <table id="ingredients">
             <th>Ingredient</th>
+                {console.log(singleRecipe.ingredients)}
                 {singleRecipe.ingredients.map((ingredient) => {
                     return (
                         <tr>

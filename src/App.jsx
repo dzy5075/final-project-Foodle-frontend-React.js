@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import RecipesPage from "./components/RecipesPage";
 import Recipe from "./components/Recipe";
 import Favorites from "./components/Favorites";
+import HomeNav from "./components/HomeNav";
 
 
 function App() {
@@ -16,18 +17,17 @@ function App() {
   const [singleRecipe, setSingleRecipe] = useState([])
 
   
-  // useEffect for auto-login
-  
-  // useEffect(() => {
-    //   fetch("/me")
-    //   .then((r) => {
-      //     if (r.ok) {
-        //       r.json().then((user) => setLoggedInUser(user));
-        //     }
-        //   });
-        // },[]);
+  // useEffect for auto-login and login persistence
+  useEffect(() => {
+      fetch("/me")
+      .then((r) => {
+          if (r.ok) {
+              r.json().then((user) => setLoggedInUser(user));
+            }
+          });
+        },[]);
         
-        // if(!setLoggedInUser)  return <LoginPage setLoggedInUser={setLoggedInUser} />
+        if(!setLoggedInUser)  return <LoginPage setLoggedInUser={setLoggedInUser} />
         
   //fetch single recipes for individual pages
   function fetchSingleRecipe(id) {
@@ -48,6 +48,7 @@ function App() {
       path:"/",
       element: 
       <>
+      <HomeNav loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
       <Home singleRecipe={singleRecipe}/>
       </>
     },{
@@ -55,14 +56,14 @@ function App() {
       element: 
       <>
       <NavBar/>
-      <NewUser/>
+      <NewUser loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
       </>
     },{
       path: "/login",
       element: 
       <>
       <NavBar/>
-      <LoginPage/>
+      <LoginPage loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
       </>
     },{
       path: "/recipespage",
@@ -86,7 +87,7 @@ function App() {
       element: 
       <>
       <NavBar/>
-      <Favorites/>
+      <Favorites loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} singleRecipe={singleRecipe}/>
       </>
     }
   ])

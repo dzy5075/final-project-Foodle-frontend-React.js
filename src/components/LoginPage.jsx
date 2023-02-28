@@ -8,7 +8,7 @@ export default function LoginPage ({ setLoggedInUser}){
     // const history = useHistory();
     //states used
     const [userArray, setUserArray] = useState([])
-    const [usernameInput, setUsernameInput] = useState("")
+    const [emailInput, setEmailInput] = useState("")
     const [passwordInput, setPasswordInput] = useState("")
     const [errors, setErrors] = useState([])
 
@@ -36,11 +36,11 @@ export default function LoginPage ({ setLoggedInUser}){
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify( { "username": usernameInput, "password": passwordInput })
+            body: JSON.stringify( { "email": emailInput, "password": passwordInput })
         }).then((r) => {
             if (r.ok) {
                 r.json().then((user) => setLoggedInUser(user));
-                navigate('/home');
+                navigate('/');
             }else {
                 r.json().then(json => setErrors(json.errors))
             }
@@ -57,10 +57,10 @@ export default function LoginPage ({ setLoggedInUser}){
                         }}>
                         <h3>Login</h3> 
                         <Form.Input fluid 
-                            placeholder="User Name" 
-                            value={usernameInput} 
+                            placeholder="Email" 
+                            value={emailInput} 
                             autoComplete="off"
-                            onChange={(e) => setUsernameInput(e.target.value)}
+                            onChange={(e) => setEmailInput(e.target.value)}
                         />
                         <Form.Input fluid 
                             type="password" 

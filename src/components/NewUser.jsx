@@ -17,7 +17,7 @@ export default function NewUser({ setLoggedInUser }) {
     //handles creating a new user when the from is submitted
     function handleCreateAcount(){
         const newUser = {
-            real_name: nameInput,
+            name: nameInput,
             email: emailInput,
             password: passwordInput,
             password_confirmation: confirmPasswordInput
