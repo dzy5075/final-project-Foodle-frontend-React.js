@@ -1,19 +1,32 @@
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
-function NavBar (){
-    let navigate = useNavigate();
-    return(
-        <nav>
-            <div className = "banner">
-                <div className = "nav-bar">
-                    <img className = "nav-logo" onClick={() => {navigate('/')}} src="/Foodle-Logo.png" alt="Foodle Logo" href="/"/>
-                    <button onClick={() => {
-                            navigate('/Favorites')}}
-                            >My Favorites</button>
-                </div>
-            </div>
-        </nav>
-    )
+function NavBar({loggedInUser}) {
+  let navigate = useNavigate();
+  return (
+    <nav>
+      <div className="banner">
+        <div className="nav-bar">
+          <img
+            className="nav-logo"
+            onClick={() => {
+              navigate("/");
+            }}
+            src="/Foodle-Logo.png"
+            alt="Foodle Logo"
+            href="/"
+          />
+          {loggedInUser ? <button
+            onClick={() => {
+              navigate("/Favorites");
+            }}
+          >
+            My Favorites
+          </button>: null }
+          
+        </div>
+      </div>
+    </nav>
+  );
 }
 
-export default NavBar
+export default NavBar;

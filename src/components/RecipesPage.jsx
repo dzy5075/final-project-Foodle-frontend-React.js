@@ -6,11 +6,12 @@ import Search from "./Search";
 export default function RecipesPage({ fetchSingleRecipe }) {
   let navigate = useNavigate();
 
-  const [recipes, setRecipes] = useState([]);
   // const [search, setSearch] = useState("")
+  const [recipes, setRecipes] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState("All");
   let [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get("search") || "";
+  
   const fetchRecipe = async () => {
     let req = await fetch("/recipes");
     let res = await req.json();

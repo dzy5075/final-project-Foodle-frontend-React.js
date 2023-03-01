@@ -55,14 +55,14 @@ function App() {
       path: "/newuser",
       element: 
       <>
-      <NavBar/>
+      <NavBar loggedInUser={loggedInUser}/>
       <NewUser loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
       </>
     },{
       path: "/login",
       element: 
       <>
-      <NavBar/>
+      <NavBar loggedInUser={loggedInUser}/>
       <LoginPage loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
       </>
     },{
@@ -70,7 +70,7 @@ function App() {
       element: 
       <>
       <div id= "recipe-page">
-      <NavBar/>
+      <NavBar loggedInUser={loggedInUser}/>
       <RecipesPage fetchSingleRecipe={fetchSingleRecipe} singleRecipe={singleRecipe}/>
       </div>
       </>
@@ -79,14 +79,14 @@ function App() {
       path: `/recipe`,
       element: 
       <>
-      <NavBar/>
+      <NavBar loggedInUser={loggedInUser}/>
       <Recipe fetchSingleRecipe={fetchSingleRecipe} singleRecipe={singleRecipe}/>
       </>
     },{
       path: "/Favorites",
       element: 
       <>
-      <NavBar/>
+      <NavBar loggedInUser={loggedInUser}/>
       <Favorites loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} singleRecipe={singleRecipe}/>
       </>
     }
