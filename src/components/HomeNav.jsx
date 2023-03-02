@@ -33,6 +33,13 @@ function HomeNavBar({ setLoggedInUser, loggedInUser }) {
               Login/Signup
             </button>
           )}
+          <button
+              onClick={() => {
+                navigate("/Favorites");
+              }}
+            >
+              View Favorite Recipes
+            </button>
           {/* <button onClick={() => {
                             navigate('/login')}} 
                             >Login/Signup</button> */}

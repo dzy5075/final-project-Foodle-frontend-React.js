@@ -18,29 +18,61 @@ export default function Favorites({ loggedInUser }) {
     fetchFavoriteRecipe();
   }, []);
 
-  function deleteFavorite (id) {
-    fetch (`/favorite_recipes/${id}`, {
-      method: `DELETE`
-    }).then ((res) => {
-      if (res.ok) {
-          navigate('/Favorites')
-      }
-        })
-      .then (() =>console.log("deleted!"))
+  function deleteFavorite(favorite) {
+    fetch(`/favorite_recipes/${favorite.id}`, {
+      method: `DELETE`,
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => navigate(`/recipespage`))
+      .then(() => {
+        handleDeleteFavorite(favoriteRecipe);
+        console.log("Deleted!");
+      });
+  }
+
+  // function handleDeleteClick() {
+  //   fetch(`http://localhost:3001/toys/${id}`, {
+  //     method: "DELETE",
+  //   })
+  //     .then((r) => r.json())
+  //     .then(() => {
+  //       onDeleteToy(toy);
+  //     });
+  // }
+
+  // function handleDeleteToy(toyToDelete) {
+  //   const updatedToys = toys.filter((toy) => toy.id !== toyToDelete.id);
+  //   setToys(updatedToys);
+  // }
+
+  function handleDeleteFavorite(favToDelete) {
+    const updatedFavs = userFavorites.filter(
+      (favorite) => favorite.id !== favToDelete.id
+    );
+    console.log(updatedFavs);
+    setFavoriteRecipe(updatedFavs);
   }
 
   const userFavorites = favoriteRecipe.filter((recipe) => {
     return loggedInUser.id === recipe.user_id;
   });
-  console.log(userFavorites);
+
   return (
     <div className="favorites-container">
+      <button
+        onClick={() => {
+          navigate(`/recipespage`);
+        }}
+      >
+        Look for recipes
+      </button>
       <h1>My Favorite Recipes</h1>
       <div className="display-recipes">
         {userFavorites.map((favorite) => {
           return (
             <figure className="recipe" key={favorite.id} id={favorite.id}>
-              {console.log(favorite.id)}
               <img
                 className="thumbnail-img"
                 src={favorite.recipe.image}
@@ -52,7 +84,14 @@ export default function Favorites({ loggedInUser }) {
                 alt=""
               ></img>
               <figcaption>{favorite.recipe.name}</figcaption>
-              <button className="delete-btn" onClick={loggedInUser ? deleteFavorite : () => navigate('/Favorites')} >Delete</button>
+              <button
+                // onClick = {() => console.log(favorite.id)}
+                className="delete-btn"
+                onClick={loggedInUser ? () => deleteFavorite(favorite) : null}
+                // onClick={loggedInUser ? logOut : () => navigate("/")}
+              >
+                Unfavorite
+              </button>
             </figure>
           );
         })}

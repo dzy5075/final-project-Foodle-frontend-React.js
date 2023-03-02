@@ -3,8 +3,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Search from "./Search";
 
-export default function RecipesPage({ fetchSingleRecipe }) {
-  let navigate = useNavigate();
+export default function RecipesPage({ fetchSingleRecipe, loggedInUser, addFavorite }) {
+//   let navigate = useNavigate(); 
 
   // const [search, setSearch] = useState("")
   const [recipes, setRecipes] = useState([]);
@@ -22,7 +22,8 @@ export default function RecipesPage({ fetchSingleRecipe }) {
     fetchRecipe();
   }, []);
 
-  const filteredRecipes = recipes.filter((recipe) => {
+  
+const filteredRecipes = recipes.filter((recipe) => {
     return recipe.name.toLowerCase().includes(search.toLowerCase());
   });
 
@@ -49,6 +50,8 @@ export default function RecipesPage({ fetchSingleRecipe }) {
               fetchSingleRecipe={fetchSingleRecipe}
               key={recipe.id}
               recipe={recipe}
+              loggedInUser={loggedInUser}
+              addFavorite={addFavorite}
             />
           );
         })}
@@ -57,7 +60,7 @@ export default function RecipesPage({ fetchSingleRecipe }) {
   );
 }
 
-function DisplayRecipes({ fetchSingleRecipe, recipe }) {
+function DisplayRecipes({ fetchSingleRecipe, recipe, loggedInUser, addFavorite}) {
   let navigate = useNavigate();
 
   return (
@@ -73,7 +76,7 @@ function DisplayRecipes({ fetchSingleRecipe, recipe }) {
         alt=""
       ></img>
       <figcaption>{recipe.name}</figcaption>
-      {/* <button className= "buttons" onClick={() => }>Recipe Info</button> */}
+      <button className= "buttons" onClick={() =>addFavorite(loggedInUser, recipe) }>Add to Favorites</button>
     </figure>
   );
 }
