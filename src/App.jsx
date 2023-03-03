@@ -74,7 +74,7 @@ function App() {
             loggedInUser={loggedInUser}
             setLoggedInUser={setLoggedInUser}
           />
-          <Home singleRecipe={singleRecipe} />
+          <Home singleRecipe={singleRecipe} fetchSingleRecipe={fetchSingleRecipe} />
         </>
       ),
     },
@@ -120,7 +120,7 @@ function App() {
     },
     ,
     {
-      path: `/recipe/${singleRecipe.name}`,
+      path: `/recipes`,
       element: (
         <>
           <NavBar loggedInUser={loggedInUser} />

@@ -71,7 +71,7 @@ function DisplayRecipes({ fetchSingleRecipe, recipe, loggedInUser, addFavorite})
         onClick={(e) => {
           console.log(recipe.id);
           fetchSingleRecipe(recipe.id);
-          navigate("/recipe");
+          navigate("/recipes");
         }}
         alt=""
       ></img>

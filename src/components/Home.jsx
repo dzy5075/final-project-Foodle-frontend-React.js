@@ -2,12 +2,18 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate, Form, Navigate } from "react-router-dom";
 
-export default function Home() {
+export default function Home({singleRecipe, fetchSingleRecipe}) {
   let navigate = useNavigate();
 //   const [searchTerm, setSearchTerm] = useState("");
 
-function handleClick() {
-    navigate(`/recipe`)
+function handleLuckyClick() {
+    fetchSingleRecipe(getRandomRecipeId(5) + 1)
+    navigate("/recipes")
+    
+}
+
+function getRandomRecipeId(max) {
+    return Math.floor(Math.random() * max);
 }
 
   return (
@@ -21,7 +27,7 @@ function handleClick() {
         </div>
       </Form>
       <div>
-        <button className="lucky-btn" onClick={handleClick} >Feeling Lucky?</button>
+        <button className="lucky-btn" onClick={handleLuckyClick} >Feeling Lucky?</button>
       </div>
 
 
