@@ -23,16 +23,19 @@ function HomeNavBar({ setLoggedInUser, loggedInUser }) {
       <div className="banner">
         <div className="nav-bar">
           {loggedInUser ? (
-            `Hi ${loggedInUser.name} !`
-          ) : (
-            <button
-              onClick={() => {
-                navigate("/login");
-              }}
-            >
+              `Hi ${loggedInUser.name} !`
+              ) : (
+                  <button
+                  onClick={() => {
+                      navigate("/login");
+                    }}
+                    >
               Login/Signup
             </button>
           )}
+          <button class="nutrition-btn" onClick={() =>{
+              navigate("/Foodtrition")
+          }}>Search Foodtrition</button>
           <button
               onClick={() => {
                 navigate("/Favorites");

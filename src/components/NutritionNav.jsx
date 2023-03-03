@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
-function NavBar({loggedInUser}) {
-  let navigate = useNavigate();
+export default function NutritionNav({loggedInUser}) {
+    let navigate = useNavigate();
+
+
   return (
     <nav>
       <div className="banner">
@@ -11,22 +13,13 @@ function NavBar({loggedInUser}) {
             onClick={() => {
               navigate("/");
             }}
-            src="/Foodle-Logo.png"
-            alt="Foodle Logo"
+            src="/Foodtrition-Logo.png"
+            alt="Foodtrition Logo"
             href="/"
           />
-          {loggedInUser ? <button
-            onClick={() => {
-              navigate("/Favorites");
-            }}
-          >
-            My Favorites
-          </button>: null }
           
         </div>
       </div>
     </nav>
-  );
+  )
 }
-
-export default NavBar;

@@ -1,13 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
+import HomeNav from "./components/HomeNav";
+import NutritionNav from "./components/NutritionNav";
 import NewUser from "./components/NewUser";
 import LoginPage from "./components/LoginPage";
 import Home from "./components/Home";
 import RecipesPage from "./components/RecipesPage";
 import Recipe from "./components/Recipe";
 import Favorites from "./components/Favorites";
-import HomeNav from "./components/HomeNav";
+import Nutrition from "./components/Nutrition"
 
 function App() {
   //global states that sibiling components may need to access
@@ -53,7 +55,7 @@ function App() {
       .then((res) => res.json())
       .then(console.log("added to favorites"));
   }
-  
+
   //all the routes
   const router = createBrowserRouter([
     {
@@ -118,7 +120,7 @@ function App() {
     },
     ,
     {
-      path: `/recipe`,
+      path: `/recipe/${singleRecipe.name}`,
       element: (
         <>
           <NavBar loggedInUser={loggedInUser} />
@@ -144,6 +146,15 @@ function App() {
         </>
       ),
     },
+    {
+      path: "/Foodtrition",
+      element: (
+        <>
+          <NutritionNav loggedInUser={loggedInUser} />
+          <Nutrition />
+        </>
+      ),
+    }
   ]);
   return (
     <div>
