@@ -36,6 +36,9 @@ function HomeNavBar({ setLoggedInUser, loggedInUser }) {
           <button class="nutrition-btn" onClick={() =>{
               navigate("/Foodtrition")
           }}>Search Foodtrition</button>
+          <button class="tools-btn" onClick={() =>{
+              navigate("/Tools")
+          }}>Calculate Needs</button>
           <button
               onClick={() => {
                 navigate("/Favorites");

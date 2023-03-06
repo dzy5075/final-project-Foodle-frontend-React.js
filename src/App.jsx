@@ -10,6 +10,7 @@ import RecipesPage from "./components/RecipesPage";
 import Recipe from "./components/Recipe";
 import Favorites from "./components/Favorites";
 import Nutrition from "./components/Nutrition"
+import NeedsCalc from "./components/NeedsCalc";
 
 function App() {
   //global states that sibiling components may need to access
@@ -152,6 +153,15 @@ function App() {
         <>
           <NutritionNav loggedInUser={loggedInUser} />
           <Nutrition />
+        </>
+      ),
+    },
+    {
+      path: "/Tools",
+      element: (
+        <>
+          <NutritionNav loggedInUser={loggedInUser} />
+          <NeedsCalc/>
         </>
       ),
     }
