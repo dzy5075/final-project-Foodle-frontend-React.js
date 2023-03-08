@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Form, Navigate } from "react-router-dom";
+import { Container } from "semantic-ui-react";
 
 export default function Nutrition() {
   const [query, setQuery] = useState("");
@@ -27,13 +28,7 @@ export default function Nutrition() {
   };
 
   return (
-    <div className="bar">
-      {/* <input
-        className="searchbar"
-        type="text"
-        name="search"
-        placeholder="Search Food"
-      /> */}
+    <div className="nutrition-bar">
       <Form method="get">
         <div className="bar">
           <input
@@ -48,29 +43,29 @@ export default function Nutrition() {
             Search
           </button>
         </div>
-      </Form>
-      <div>
+      <div class="nutrition-container">
         {searchData.map((nutrientdata) => {
         return (
-        <figure>
-            <h1>Food Name: {nutrientdata.name}</h1>
+        <figure key={nutrientdata.id} >
+            <h1>Food Name: <u>{nutrientdata.name}</u></h1>
             <ul>
-                <p>Servings: {nutrientdata.serving_size_g}g</p>
-                <p>Calories: {nutrientdata.calories}kcals</p>
-                <p>Total Fat: {nutrientdata.fat_total_g}g</p>
-                <p>Saturated Fat: {nutrientdata.fat_saturated_g}g</p>
-                <p>Protein: {nutrientdata.protein_g}g</p>
-                <p>Sodium: {nutrientdata.sodium_mg}mg</p>
-                <p>Potassium: {nutrientdata.potassium_mg}mg</p>
-                <p>Cholesterol: {nutrientdata.cholesterol_mg}mg</p>
-                <p>Carbohydrates: {nutrientdata.carbohydrates_total_g}g</p>
-                <p>Fiber: {nutrientdata.fiber_g}g</p>
-                <p>Sugars: {nutrientdata.sugar_g}g</p>
+                <p><strong>Servings:</strong> <u>{nutrientdata.serving_size_g}g</u></p>
+                <p><strong>Calories:</strong> <u>{nutrientdata.calories}kcals</u></p>
+                <p><strong>Total Fat:</strong> <u>{nutrientdata.fat_total_g}g</u></p>
+                <p><strong>Saturated Fat:</strong> <u>{nutrientdata.fat_saturated_g}g</u></p>
+                <p><strong>Protein:</strong> <u>{nutrientdata.protein_g}g</u></p>
+                <p><strong>Sodium:</strong> <u>{nutrientdata.sodium_mg}mg</u></p>
+                <p><strong>Potassium:</strong> <u>{nutrientdata.potassium_mg}mg</u></p>
+                <p><strong>Cholesterol:</strong> <u>{nutrientdata.cholesterol_mg}mg</u></p>
+                <p><strong>Carbohydrates:</strong> <u>{nutrientdata.carbohydrates_total_g}g</u></p>
+                <p><strong>Fiber:</strong> <u>{nutrientdata.fiber_g}g</u></p>
+                <p><strong>Sugars:</strong> <u>{nutrientdata.sugar_g}g</u></p>
             </ul>
         </figure>
         )
         })}
       </div>
+      </Form>
     </div>
   );
 }
