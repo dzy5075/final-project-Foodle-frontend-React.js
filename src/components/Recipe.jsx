@@ -6,12 +6,13 @@ export default function Recipe({singleRecipe, addFavorite, loggedInUser}) {
     // console.log(singleRecipe)
   return (
     <>
-        <div>
+        <div class="recipe-header">
+            <h1>{singleRecipe.name}</h1>
             <button 
+            className="fav-delete-btn"
             onClick={(e) => {
                 navigate('/recipespage')}} > Return to Search</button>
-            <h1>{singleRecipe.name}</h1>
-            <button className="favorite-btn" onClick={() => addFavorite(loggedInUser, singleRecipe)}>Add to favorites</button>
+            <button className="fav-delete-btn" onClick={() => addFavorite(loggedInUser, singleRecipe)}>Add to favorites</button>
         </div>
 
         <figure className="single-recipe">

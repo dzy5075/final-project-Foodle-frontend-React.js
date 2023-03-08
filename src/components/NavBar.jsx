@@ -16,7 +16,7 @@ function NavBar({loggedInUser}) {
             href="/"
           />
           <button
-        class= "home-nav-btn"
+        className= "home-nav-btn"
         onClick={() => {
           navigate(`/recipespage`);
         }}
@@ -24,7 +24,7 @@ function NavBar({loggedInUser}) {
         Look for more recipes
       </button>
           {loggedInUser ? <button
-            class= "home-nav-btn"
+            className= "home-nav-btn"
             onClick={() => {
               navigate("/Favorites");
             }}

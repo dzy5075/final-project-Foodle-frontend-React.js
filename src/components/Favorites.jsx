@@ -25,7 +25,7 @@ export default function Favorites({ loggedInUser }) {
         "content-type": "application/json",
       },
     })
-      .then((res) => navigate(`/recipespage`))
+      .then((res) => {window.location.reload()})
       .then(() => {
         handleDeleteFavorite(favoriteRecipe);
         console.log("Deleted!");
@@ -48,16 +48,18 @@ export default function Favorites({ loggedInUser }) {
   // }
 
   function handleDeleteFavorite(favToDelete) {
+    
     const updatedFavs = userFavorites.filter(
       (favorite) => favorite.id !== favToDelete.id
     );
     console.log(updatedFavs);
     setFavoriteRecipe(updatedFavs);
   }
-
   const userFavorites = favoriteRecipe.filter((recipe) => {
     return loggedInUser.id === recipe.user_id;
   });
+
+  
 
   return (
     <div className="favorites-container">
@@ -76,12 +78,10 @@ export default function Favorites({ loggedInUser }) {
                 }}
                 alt=""
               ></img>
-              <figcaption>{favorite.recipe.name}</figcaption>
+              <figcaption><strong>{favorite.recipe.name}</strong></figcaption>
               <button
-                // onClick = {() => console.log(favorite.id)}
-                className="delete-btn"
+                className="fav-delete-btn"
                 onClick={loggedInUser ? () => deleteFavorite(favorite) : null}
-                // onClick={loggedInUser ? logOut : () => navigate("/")}
               >
                 Unfavorite
               </button>

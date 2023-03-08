@@ -7,6 +7,7 @@ export default function Nutrition() {
   const [searchData, setSearchData] = useState([]);
 
   function fetchNutrition(query) {
+    // from api-ninja
     const url = `https://api.api-ninjas.com/v1/nutrition?query=${query}`;
     fetch(url, {
       method: "GET",
@@ -54,17 +55,17 @@ export default function Nutrition() {
               <section class="performance-facts">
                 <header class="performance-facts__header">
                   <h1 class="performance-facts__title">Nutrition Facts</h1>
-                  <p>Serving Size {nutrientdata.serving_size_g}g</p>
+                  <p class="small-info">Serving Size {Math.round(`${nutrientdata.serving_size_g}`)}g</p>
                 </header>
                 <table class="performance-facts__table">
-                  <tbody>
+                  <tbody className="small-info">
                     <tr>
                       <th colspan="2">
                         <b>Total Calories: </b>
-                        {nutrientdata.calories}kcals
+                        <u>{nutrientdata.calories}kcals</u>
                       </th>
                       <th colspan="2">
-                        <b>{"Total Calories from Fat: "}</b>
+                        <b>{"Total Calories from Fat: " + " "}</b>
                         <u>{Math.round(`${nutrientdata.fat_total_g}` * 9)} kcals </u>
                       </th>
                     </tr>
@@ -80,7 +81,7 @@ export default function Nutrition() {
                       </th>
                       <td>
                         <b>
-                          {Math.round(
+                        DV* = {Math.round(
                             (`${nutrientdata.fat_total_g}` / 64) * 100
                           )}
                           %
@@ -95,7 +96,7 @@ export default function Nutrition() {
                       </th>
                       <td>
                         <b>
-                          {Math.round(
+                          DV* = {Math.round(
                             (`${nutrientdata.fat_saturated_g}` / 20) * 100
                           )}
                           %
@@ -105,11 +106,11 @@ export default function Nutrition() {
                     <tr>
                       <th colspan="2">
                         <b>Cholesterol: </b>
-                        {nutrientdata.cholesterol_mg}mg
+                        <u>{nutrientdata.cholesterol_mg}</u>mg
                       </th>
                       <td>
                         <b>
-                          {Math.round(
+                          DV* = {Math.round(
                             (`${nutrientdata.cholesterol_mg}` / 300) * 100
                           )}
                           %
@@ -119,11 +120,11 @@ export default function Nutrition() {
                     <tr>
                       <th colspan="2">
                         <b>Sodium: </b>
-                        {nutrientdata.sodium_mg}mg
+                        <u>{nutrientdata.sodium_mg}</u>mg
                       </th>
                       <td>
                         <b>
-                          {Math.round(
+                        DV* = {Math.round(
                             (`${nutrientdata.sodium_mg}` / 2000) * 100
                           )}
                           %
@@ -132,12 +133,12 @@ export default function Nutrition() {
                     </tr>
                     <tr>
                       <th colspan="2">
-                        <b>Total Carbohydrate: </b>
-                        {nutrientdata.carbohydrates_total_g}g
+                        <b>Total Carb: </b>
+                        <u>{Math.round(`${nutrientdata.carbohydrates_total_g}`)}</u>g
                       </th>
                       <td>
                         <b>
-                          {Math.round(
+                        DV* = {Math.round(
                             (`${nutrientdata.carbohydrates_total_g}` / 300) *
                               100
                           )}
@@ -148,12 +149,12 @@ export default function Nutrition() {
                     <tr>
                       <td class="blank-cell"></td>
                       <th>
-                        Dietary Fiber: 
-                        {nutrientdata.fiber_g}g
+                        <b> Dietary Fiber:</b> 
+                        <u>{Math.round(`${nutrientdata.fiber_g}`)}g</u>
                       </th>
                       <td>
                         <b>
-                          {Math.round((`${nutrientdata.fiber_g}` / 25) * 100)}%
+                        DV* = {Math.round((`${nutrientdata.fiber_g}` / 25) * 100)}%
                         </b>
                       </td>
                     </tr>
@@ -161,14 +162,14 @@ export default function Nutrition() {
                       <td class="blank-cell"></td>
                       <th>
                         Sugars:  
-                        {nutrientdata.sugar_g}g
+                        <u>{Math.round((`${nutrientdata.sugar_g}`))}</u>g
                       </th>
                       <td></td>
                     </tr>
                     <tr class="thick-end">
                       <th colspan="2">
                         <b>Protein: </b>
-                        {nutrientdata.protein_g}g
+                        <u>{nutrientdata.protein_g}</u>g
                       </th>
                       <td></td>
                     </tr>

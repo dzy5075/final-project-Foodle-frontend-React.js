@@ -50,6 +50,7 @@ function HomeNavBar({ setLoggedInUser, loggedInUser }) {
           >
             <strong>Calculate Needs</strong>
           </button>
+          {loggedInUser ? 
           <button
             class="home-nav-btn"
             onClick={() => {
@@ -57,7 +58,7 @@ function HomeNavBar({ setLoggedInUser, loggedInUser }) {
             }}
           >
             <strong>View Favorite Recipes</strong>
-          </button>
+          </button> : null }
           {/* <button onClick={() => {
                             navigate('/login')}} 
                             >Login/Signup</button> */}
