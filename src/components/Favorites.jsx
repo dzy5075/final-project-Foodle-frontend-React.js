@@ -61,13 +61,6 @@ export default function Favorites({ loggedInUser }) {
 
   return (
     <div className="favorites-container">
-      <button
-        onClick={() => {
-          navigate(`/recipespage`);
-        }}
-      >
-        Look for recipes
-      </button>
       <h1>My Favorite Recipes</h1>
       <div className="display-recipes">
         {userFavorites.map((favorite) => {

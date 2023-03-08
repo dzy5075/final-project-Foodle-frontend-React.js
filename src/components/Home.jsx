@@ -7,7 +7,7 @@ export default function Home({singleRecipe, fetchSingleRecipe}) {
 //   const [searchTerm, setSearchTerm] = useState("");
 
 function handleLuckyClick() {
-    fetchSingleRecipe(getRandomRecipeId(5) + 1)
+    fetchSingleRecipe(getRandomRecipeId(285) + 1)
     navigate("/recipes")
     
 }
@@ -22,8 +22,8 @@ function getRandomRecipeId(max) {
       {/* Form allow you to omit using Navigate through url and automatically sends searchterm into RecipePage */}
       <Form method="get" action="/recipespage">
         <div className="bar">
-            <input className="searchbar" type="text" name="search" placeholder="Search"/>
-        <button type="submit">Search</button>
+            <input className="searchbar" type="text" name="search" placeholder="Search keyword for recipes"/>
+        <button class="home-search-btn" type="submit">Search</button>
         </div>
       </Form>
       <div>

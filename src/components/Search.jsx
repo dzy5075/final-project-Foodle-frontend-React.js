@@ -6,7 +6,6 @@ export default function Search({search, setSearch, setCategoryFilter}) {
         <div className= "search-filter" >
                         <select name="filter" className= "categoryfilter" onChange={(e) => setCategoryFilter(e.target.value)}>
                             <option value="All">Filter by Category</option>
-                            <option>Favorites</option>
                             <option value="Beef">Beef</option>
                             <option value="Breakfast">Breakfast</option>
                             <option value="Chicken">Chicken</option>
@@ -22,12 +21,12 @@ export default function Search({search, setSearch, setCategoryFilter}) {
                             <option value="Vegan">Vegan</option>
                             <option value="Vegetarian">Vegetarian</option>
                         </select>
-                        <input className="searchbar" 
+                        <input className="recipe-searchbar" 
                                 type="text" 
                                 title="Search"  
                                 value = {search} 
                                 onChange = {(e) => {setSearch(e.target.value)}}
-                                placeholder="Search Recipe by Name"/>
+                                placeholder="Search by Name"/>
                     </div>
     )
 }

@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function NeedsCalc() {
     const [gender, setGender] = useState("All")
-    const [cm, setCM] = useState(null);
+    const [inches, setInches] = useState(null);
     const [kg, setKg] = useState(null);
     const [age, setAge] = useState(null);
     const [af, setAf] = useState(null);
@@ -12,7 +12,7 @@ export default function NeedsCalc() {
     const [fluid, setFluid] = useState(0);
   
     const onChange = (e) => {
-      setCM(e.target.value);
+      setInches(e.target.value);
     };
     const onChange2 = (e) => {
       setKg(e.target.value);
@@ -24,12 +24,12 @@ export default function NeedsCalc() {
       setAf(e.target.value);
     };
 
-    function calculateEN(gender, kg, cm, age, af){
+    function calculateEN(gender, kg, inches, age, af){
         let RMR;
         if (gender === "Male") {
-            RMR = (10 * kg) + (6.25 * cm) - (5 * age) + 5 }
+            RMR = (10 * kg) + (6.25 * inches * 2.54) - (5 * age) + 5 }
         else if (gender === "Female") {
-            RMR = (10 * kg) + (6.25 * cm) - (5 * age) - 161 }
+            RMR = (10 * kg) + (6.25 * inches * 2.54) - (5 * age) - 161 }
         else  {return setEnergy(0)}
         const energyNeeds = RMR * af
         console.log(energyNeeds)
@@ -53,12 +53,13 @@ export default function NeedsCalc() {
 
     useEffect(() => {
         calculatePRO(kg)
-        calculateEN(gender, kg, cm, age, af)
+        calculateEN(gender, kg, inches, age, af)
         calculateFluids(kg)
-    }, [gender, kg, cm, age, af])
+    }, [gender, kg, inches, age, af])
   
     return (
       <>
+        <div className="calculate-form">
         <div><strong>Gender</strong></div>
         <select name="Gender-select" 
             onChange={(e) => { 
@@ -70,8 +71,8 @@ export default function NeedsCalc() {
             <option value="Male">Male</option>
             <option value="Female">Female</option>
         </select>
-        <div><strong>Height in Centimeters, 1inch = 2.54centimeters</strong></div>
-        <input value={cm} onChange={onChange} placeholder="cm"/>
+        <div><strong>Height in Centimeters, 1feet = 12inches</strong></div>
+        <input value={inches} onChange={onChange} placeholder="inches"/>
         <div><strong>Weight in Kilograms(kg), 1kg = 2.2lbs</strong></div>
         <input value={kg} onChange={onChange2} placeholder="kg"/>
         <div><strong>Age</strong></div>
@@ -89,11 +90,14 @@ export default function NeedsCalc() {
             <option value="1.5">1.5: Moderate Exercise (4-5 times a week)</option>
             <option value="1.7">1.7: Heavy Exercise (6-7 times a week)</option>
         </select>
-        <div><strong>Energy Needs(kcals)</strong></div>
+        </div>
+        <div className="display-needs">
+            <h1><strong><u>Display Needs(good estimate)</u></strong></h1>
         {console.log(energy)}
-        <h2>Your energy needs:{energy.toFixed(1)} kcals</h2>
-        <h2>Your protein needs: {protein.toFixed(1)} to {(kg * 1.2).toFixed(1)}grams</h2>
-        <h2>Your fluid needs:{Math.round(fluid)} milliliters</h2>
+        <h2>Your energy needs:<u>{energy.toFixed(1)} kcals</u></h2>
+        <h2>Your protein needs:<u>{protein.toFixed(1)} to {(kg * 1.2).toFixed(1)}grams</u></h2>
+        <h2>Your fluid needs:<u>{Math.round(fluid)} milliliters</u></h2>
+        </div>
       </>
     );
 }

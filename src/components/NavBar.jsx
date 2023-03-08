@@ -15,7 +15,16 @@ function NavBar({loggedInUser}) {
             alt="Foodle Logo"
             href="/"
           />
+          <button
+        class= "home-nav-btn"
+        onClick={() => {
+          navigate(`/recipespage`);
+        }}
+      >
+        Look for more recipes
+      </button>
           {loggedInUser ? <button
+            class= "home-nav-btn"
             onClick={() => {
               navigate("/Favorites");
             }}

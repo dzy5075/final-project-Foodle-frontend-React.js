@@ -75,8 +75,8 @@ function DisplayRecipes({ fetchSingleRecipe, recipe, loggedInUser, addFavorite})
         }}
         alt=""
       ></img>
-      <figcaption>{recipe.name}</figcaption>
-      <button className= "buttons" onClick={() =>addFavorite(loggedInUser, recipe) }>Add to Favorites</button>
+      <figcaption><strong>{recipe.name}</strong></figcaption>
+      <button className= "fav-btn" onClick={() =>addFavorite(loggedInUser, recipe) }>Add to Favorites</button>
     </figure>
   );
 }

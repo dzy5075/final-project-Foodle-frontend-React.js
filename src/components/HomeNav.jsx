@@ -22,42 +22,56 @@ function HomeNavBar({ setLoggedInUser, loggedInUser }) {
     <nav>
       <div className="banner">
         <div className="nav-bar">
-          {loggedInUser ? (
-              `Hi ${loggedInUser.name} !`
-              ) : (
-                  <button
-                  onClick={() => {
-                      navigate("/login");
-                    }}
-                    >
-              Login/Signup
-            </button>
-          )}
-          <button class="nutrition-btn" onClick={() =>{
-              navigate("/Foodtrition")
-          }}>Search Foodtrition</button>
-          <button class="tools-btn" onClick={() =>{
-              navigate("/Tools")
-          }}>Calculate Needs</button>
-          <button
+        <strong>{loggedInUser ? (`Hi ${loggedInUser.name}!`
+          ) : (
+            <button
+              class="home-nav-btn"
               onClick={() => {
-                navigate("/Favorites");
+                navigate("/login");
               }}
             >
-              View Favorite Recipes
+              Login/Signup
             </button>
+          )}</strong>
+          <div id="function-btns">
+          <button
+            class="home-nav-btn"
+            onClick={() => {
+              navigate("/Foodtrition");
+            }}
+          >
+            <strong>Search Foodtrition</strong>
+          </button>
+          <button
+            class="home-nav-btn"
+            onClick={() => {
+              navigate("/Tools");
+            }}
+          >
+            <strong>Calculate Needs</strong>
+          </button>
+          <button
+            class="home-nav-btn"
+            onClick={() => {
+              navigate("/Favorites");
+            }}
+          >
+            <strong>View Favorite Recipes</strong>
+          </button>
           {/* <button onClick={() => {
                             navigate('/login')}} 
                             >Login/Signup</button> */}
           {loggedInUser ? (
             <button
+              class="home-nav-btn"
               type="button"
               onClick={loggedInUser ? logOut : () => navigate("/")}
-            >
+            ><strong>
               {" "}
-              logout
+              logout</strong>
             </button>
           ) : null}
+          </div>
         </div>
       </div>
     </nav>

@@ -47,42 +47,43 @@ export default function LoginPage({ setLoggedInUser }) {
   }
 
   return (
-    <div className="login-background">
-      <div className="login-div">
-        <div className="form-div">
-          <Form
-            className="login-form"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleLogin();
-            }}
+    <div className="form-container">
+      <Form
+        className="login-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleLogin();
+        }}
+      >
+        <h1>Login</h1>
+        <Form.Input
+          className="input-form"
+          fluid
+          placeholder="Email"
+          value={emailInput}
+          autoComplete="off"
+          onChange={(e) => setEmailInput(e.target.value)}
+        />
+        <Form.Input
+          className="input-form"
+          fluid
+          type="password"
+          placeholder="Password"
+          value={passwordInput}
+          autoComplete="current-password"
+          onChange={(e) => setPasswordInput(e.target.value)}
+        />
+        <div className="login-btns">
+          <Form.Button class="form-buttons">
+            Login
+          </Form.Button>
+          <button class="form-buttons"
+            onClick={() => navigate("/newuser")}
           >
-            <h3>Login</h3>
-            <Form.Input
-              fluid
-              placeholder="Email"
-              value={emailInput}
-              autoComplete="off"
-              onChange={(e) => setEmailInput(e.target.value)}
-            />
-            <Form.Input
-              fluid
-              type="password"
-              placeholder="Password"
-              value={passwordInput}
-              autoComplete="current-password"
-              onChange={(e) => setPasswordInput(e.target.value)}
-            />
-            <Form.Button type="submit">Login</Form.Button>
-            <br />
-            <button type="button" onClick={() => navigate("/newuser")}>
-              {" "}
-              Create an Account
-            </button>
-            <br />
-          </Form>
+            Create an Account
+          </button>
         </div>
-      </div>
+      </Form>
     </div>
   );
 }

@@ -10,7 +10,7 @@ export default function Recipe({singleRecipe, addFavorite, loggedInUser}) {
             <button 
             onClick={(e) => {
                 navigate('/recipespage')}} > Return to Search</button>
-            <h3>{singleRecipe.name}</h3>
+            <h1>{singleRecipe.name}</h1>
             <button className="favorite-btn" onClick={() => addFavorite(loggedInUser, singleRecipe)}>Add to favorites</button>
         </div>
 
