@@ -361,7 +361,7 @@ width: 150px;
   background: linear-gradient(45deg, rgb(101, 19, 42), rgb(38, 255, 30));
 } */
 
-/* -------------------------------------------------------- */
+/* -----------------------Nutrition--------------------------------- */
 
 .nutrition-bar {
   display:flex;
@@ -375,6 +375,53 @@ width: 150px;
   border: solid 1px rgb(255, 255, 255);
   display: flex;
   justify-content: center;
+  align-content: center;
   height: 500px;
-  font-size: 20pt;
+  font-size: 10pt;
+}
+
+body {
+  font-size: medium;
+  line-height: 1.4;
+}
+p {
+  margin: 0;
+}
+
+.performance-facts {
+  border: 1px solid black;
+  margin: 20px;
+  float: left;
+  width: 280px;
+  padding: 0.5rem;
+  .table: {
+    border-collapse: collapse;
+  }
+}
+.performance-facts__title {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0 0 0.25rem 0;
+}
+.performance-facts__header {
+  border-bottom: 10px solid black;
+  padding: 0 0 0.25rem 0;
+  margin: 0 0 0.5rem 0;
+
+}
+.small-info {
+  font-size: 2.6rem;
+}
+
+.text-center {
+  text-align: center;
+}
+.thick-row {
+  margin-left: rem;
+}
+.thick-end {
+  border-bottom: 10px solid black;
+}
+.thin-end {
+  border-bottom: 1px solid black;
 }
