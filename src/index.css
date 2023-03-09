@@ -178,7 +178,7 @@ code {
   background-color: #FFFFFF;
   border-width: 0;
   box-sizing: border-box;
-  color: #000000;
+  color: #d2595d;
   cursor: pointer;
   display: inline-block;
   font-family: Clarkson,Helvetica,sans-serif;
@@ -201,12 +201,13 @@ code {
   touch-action: manipulation;
   vertical-align: baseline;
   white-space: nowrap;
+
 }
 
 .home-nav-btn:before {
   animation: opacityFallbackOut .5s step-end forwards;
   backface-visibility: hidden;
-  background-color: #EBEBEB;
+  background-color: #4ac94e;
   clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
   content: "";
   height: 100%;
@@ -281,7 +282,7 @@ width: 150px;
   height:15rem;
   width: 18rem;
   padding: 1rem;
-  margin-top: 2px;
+  margin-top: 1rem;
 }
 .recipe > figcaption{
   text-align: center;
@@ -345,6 +346,10 @@ width: 150px;
   color: #fff;
 }
 
+.recipe-header {
+  height: 3rem;
+}
+
 #recipe-page{
   height:100vw;
   width:100vw; 
@@ -358,21 +363,35 @@ width: 150px;
   justify-content: flex-end;
   margin-right: 18rem;
 }
-
-/* .single-recipe{
-  height: 4rem;
-  margin-left: 1rem;  
+/* .single-recipe {
+  background-color: #4ac94e;
 } */
+#entire-recipe-container {
+  background-color: #95a2b8;
+}
+
+.single-recipe > img{
+margin-left: 2rem;
+margin-top: 1rem; 
+margin-bottom: 0rem;
+height: 30rem;
+width: 30rem;
+}
 
 
 #instructions {
-  border: solid 3px black;
-  margin-top: 3rem;
+  border: dashed 3px black;
+  margin-top: 4rem;
   padding: 1%;
+  background-color: #4ac94e;
+}
+
+#instructions > h1 {
+  border-bottom: .5rem solid black;
 }
 
 #ingredients {
-  border: solid 3px black;
+  border: dashed 3px black;
     background-color: white;
     font-size: 20px;
     margin-left: 55rem;
@@ -380,7 +399,8 @@ width: 150px;
     padding: 15px;
     border-style: groove;
     align-items: flex-start;
-    box-shadow: 1px 1px 8px 1px #dcdcdc;
+    box-shadow: 1px 1px 1px 1px #dcdcdc;
+    height: 20rem;
 }
 
 .nav-bar{
@@ -394,14 +414,6 @@ width: 150px;
   ;
 }
 
-.display-needs {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 20rem;
-  padding: 0%;
-}
 /* ---------------------------------------------------------------- */
 .form-container {
   display: flex;
@@ -516,12 +528,20 @@ p {
 }
 
 /* -----------------Nutrition Needs---------------------------- */
-
-.calculate-form {
-  margin-top: 2rem;
+.display-needs {
+  margin-top: 10rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100px;
-  border: solid#000;
+  height: 20rem;
+  padding: 6%;
+  border-top: dashed 1px ;
+  /* border: solid 1px black; */
+}
+.calculate-form {
+  margin-top: 1rem;
+  display: flex;
+  height: 3rem;
+  /* border: solid#000; */
+  padding: 2%
 }

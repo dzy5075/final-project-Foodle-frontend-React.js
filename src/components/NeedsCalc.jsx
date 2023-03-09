@@ -62,8 +62,7 @@ export default function NeedsCalc() {
     <>
       <div className="calculate-form">
         <div>
-          <strong>Gender</strong>
-        </div>
+          <strong>Select Gender</strong>
         <select
           name="Gender-select"
           onChange={(e) => {
@@ -75,8 +74,9 @@ export default function NeedsCalc() {
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </select>
+        </div>
         <div>
-          <strong>Height in Centimeters, 1feet = 12inches: </strong>
+          <strong>Height in inches: </strong>
           <input value={inches} onChange={onChange} placeholder="inches" />
         </div>
         <div>

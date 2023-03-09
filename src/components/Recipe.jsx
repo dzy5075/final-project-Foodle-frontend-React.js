@@ -8,7 +8,7 @@ export default function Recipe({ singleRecipe, addFavorite, loggedInUser }) {
   // console.log(singleRecipe)
 
   return (
-    <>
+    <div id="entire-recipe-container">
       <div class="recipe-header">
         <h1>{singleRecipe.name}</h1>
         <div id="recipe-btn">
@@ -32,9 +32,9 @@ export default function Recipe({ singleRecipe, addFavorite, loggedInUser }) {
 
         {/* <div className="single-recipe"> */}
           <figure className="single-recipe">
-          <img src={singleRecipe.image} alt="recipe img" height={ "500rem"}></img>
+          <img src={singleRecipe.image} alt="recipe img" ></img>
           </figure>
-            <table id="ingredients" height="">
+            <table id="ingredients">
                 <th>Ingredients</th>
                 {console.log(singleRecipe.ingredients)}
                 {singleRecipe.ingredients.map((ingredient) => {
@@ -53,10 +53,10 @@ export default function Recipe({ singleRecipe, addFavorite, loggedInUser }) {
         <h1>Cooking Instructions:</h1>
         <p>{singleRecipe.instruction}</p>
       </div>
-      <div className="ratio ratio-16x9">
+      {/* <div className="ratio ratio-16x9">
   <iframe src={singleRecipe.video} title="YouTube video" allowfullscreen></iframe>
-</div>
-    </>
+</div> */}
+    </div>
   );
 }
   
