@@ -283,28 +283,18 @@ width: 150px;
   width: 18rem;
   padding: 1rem;
   margin-top: 1rem;
+  border-radius: 10%;
 }
 .recipe > figcaption{
   text-align: center;
   font-size: 1rem;
-  font-family: Helvetica;
+  font-family:'Chakra Petch', sans-serif;
 }
-
-/* .video-responsive {
-  overflow: hidden;
-  padding-bottom: 56.25%;
-  position: relative;
-  height: 0;
+.favorites-header {
+  text-align: center;
+  font-family:'Chakra Petch', sans-serif;
+  margin-bottom: 3rem;
 }
-
-.video-responsive iframe {
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-} */
-
 
 .fav-delete-btn{
   margin-left: 3.7rem;
@@ -350,6 +340,12 @@ width: 150px;
   height: 3rem;
 }
 
+.recipe-header h1 {
+  margin-left: 3rem;
+  font-family:'Chakra Petch', sans-serif;
+  color: rgb(0, 0, 0);
+}
+
 #recipe-page{
   height:100vw;
   width:100vw; 
@@ -367,7 +363,8 @@ width: 150px;
   background-color: #4ac94e;
 } */
 #entire-recipe-container {
-  background-color: #95a2b8;
+  /* background-image: url("../public/3429102.jpg") */
+  background-color: rgb(217, 217, 217);
 }
 
 .single-recipe > img{
@@ -376,6 +373,8 @@ margin-top: 1rem;
 margin-bottom: 0rem;
 height: 30rem;
 width: 30rem;
+border-radius: 10%;
+box-shadow: 1px 1px 1px 1px black;
 }
 
 
@@ -466,12 +465,22 @@ width: 30rem;
 } */
 
 /* -----------------------Nutrition--------------------------------- */
+.nutrition-header > h1{
+font-family:'Chakra Petch', sans-serif;
+display: flex;
+justify-content: center;
+}
+.nutrition-header > p{
+font-family:'Chakra Petch', sans-serif;
+display: flex;
+justify-content: center;
+}
 
 .nutrition-bar {
   display:flex;
   justify-content: center;
   align-content: center;
-  margin-top: 150px;
+  margin-top: 2rem;
 
 }
 
@@ -511,14 +520,14 @@ p {
 
 }
 .small-info {
-  font-size: 1.67rem;
+  font-size: 1.65rem;
 }
 
 .text-center {
   text-align: center;
 }
-.thick-row {
-  margin-left: rem;
+.thick-row > h2{
+  margin-left: 2rem;
 }
 .thick-end {
   border-bottom: 10px solid black;
@@ -528,20 +537,41 @@ p {
 }
 
 /* -----------------Nutrition Needs---------------------------- */
+.needs-header {
+text-align: center;
+
+}
+
+.check-daily {
+  text-align: center;
+  font-family:'Chakra Petch', sans-serif;
+}
+
 .display-needs {
-  margin-top: 10rem;
+  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 20rem;
   padding: 6%;
-  border-top: dashed 1px ;
+  border-top: dashed 4px ;
+  font-family:'Chakra Petch', sans-serif;
   /* border: solid 1px black; */
 }
 .calculate-form {
   margin-top: 1rem;
   display: flex;
+  justify-content: space-around;
   height: 3rem;
   /* border: solid#000; */
-  padding: 2%
+  padding: 4%;
+  font-family:'Chakra Petch', sans-serif;
+}
+
+.input-box {
+  flex-grow: 1;
+  color: blueviolet;
+  font-size: 1.3rem;
+  line-height: 2.4rem;
+  width: 13rem;
 }

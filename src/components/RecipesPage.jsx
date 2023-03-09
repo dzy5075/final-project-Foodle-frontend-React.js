@@ -3,15 +3,19 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Search from "./Search";
 
-export default function RecipesPage({ fetchSingleRecipe, loggedInUser, addFavorite }) {
-//   let navigate = useNavigate(); 
+export default function RecipesPage({
+  fetchSingleRecipe,
+  loggedInUser,
+  addFavorite,
+}) {
+  //   let navigate = useNavigate();
 
   // const [search, setSearch] = useState("")
   const [recipes, setRecipes] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState("All");
   let [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get("search") || "";
-  
+
   const fetchRecipe = async () => {
     let req = await fetch("/recipes");
     let res = await req.json();
@@ -22,8 +26,7 @@ export default function RecipesPage({ fetchSingleRecipe, loggedInUser, addFavori
     fetchRecipe();
   }, []);
 
-  
-const filteredRecipes = recipes.filter((recipe) => {
+  const filteredRecipes = recipes.filter((recipe) => {
     return recipe.name.toLowerCase().includes(search.toLowerCase());
   });
 
@@ -60,7 +63,12 @@ const filteredRecipes = recipes.filter((recipe) => {
   );
 }
 
-function DisplayRecipes({ fetchSingleRecipe, recipe, loggedInUser, addFavorite}) {
+function DisplayRecipes({
+  fetchSingleRecipe,
+  recipe,
+  loggedInUser,
+  addFavorite,
+}) {
   let navigate = useNavigate();
 
   return (
@@ -75,8 +83,18 @@ function DisplayRecipes({ fetchSingleRecipe, recipe, loggedInUser, addFavorite})
         }}
         alt=""
       ></img>
-      <figcaption><strong>{recipe.name}</strong></figcaption>
-      <button className= "fav-delete-btn" onClick={() =>addFavorite(loggedInUser, recipe) }>Add to Favorites</button>
+      <figcaption>
+        <strong>{recipe.name}</strong>
+      </figcaption>
+
+      {loggedInUser ? (
+        <button
+          className="fav-delete-btn"
+          onClick={() => addFavorite(loggedInUser, recipe)}
+        >
+          Add to Favorites
+        </button>
+      ) : null}
     </figure>
   );
 }

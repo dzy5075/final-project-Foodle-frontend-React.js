@@ -29,6 +29,10 @@ export default function Nutrition() {
   };
 
   return (
+    <div className="nutrition-header">
+        <h1>Food Look Up</h1>
+        <p>seach ex: (serving size) of (search item)</p>
+        <p>Example: (6 oz) of (steak)</p>
     <div className="nutrition-bar">
       <Form method="get">
         <div className="bar">
@@ -48,36 +52,37 @@ export default function Nutrition() {
             Search
           </button>
         </div>
-        <div class="nutrition-container">
+        <div className="nutrition-container">
           {searchData.map((nutrientdata) => {
             return (
-              // <img src="https://s.cdpn.io/3/NutritionFacts.gif" class="image">
-              <section class="performance-facts">
-                <header class="performance-facts__header">
-                  <h1 class="performance-facts__title">Nutrition Facts</h1>
-                  <p class="small-info">Serving Size {Math.round(`${nutrientdata.serving_size_g}`)}g</p>
+                // <img src="https://s.cdpn.io/3/NutritionFacts.gif" class="image">
+                <section className="performance-facts">
+                  {console.log(nutrientdata)}
+                <header className="performance-facts__header">
+                  <h1 className="performance-facts__title">Nutrition Facts</h1>
+                  <p className="small-info">Serving Size {Math.round(`${nutrientdata.serving_size_g}`)}g</p>
                 </header>
-                <table class="performance-facts__table">
+                <table className="performance-facts__table">
                   <tbody className="small-info">
                     <tr>
-                      <th colspan="2">
+                      <th colSpan="2">
                         <b>Total Calories: </b>
                         <u>{nutrientdata.calories}kcals</u>
                       </th>
-                      <th colspan="2">
+                      <th colSpan="2">
                         <b>{"Total Calories from Fat: " + " "}</b>
                         <u>{Math.round(`${nutrientdata.fat_total_g}` * 9)} kcals </u>
                       </th>
                     </tr>
-                    <tr class="thick-row">
-                      <td colspan="3" >
-                        <h2>% Daily Value*</h2>
+                    <tr className="thick-row">
+                      <td colSpan="3" >
+                        <h2> *Daily Value%*</h2>
                       </td>
                     </tr>
                     <tr>
-                      <th colspan="2">
+                      <th colSpan="2">
                         <b>Total Fat: </b>
-                        {nutrientdata.fat_total_g}g
+                        <u>{nutrientdata.fat_total_g}</u>g
                       </th>
                       <td>
                         <b>
@@ -89,10 +94,10 @@ export default function Nutrition() {
                       </td>
                     </tr>
                     <tr>
-                      <td class="blank-cell"></td>
+                      <td className="blank-cell"></td>
                       <th>
-                        Saturated Fat: 
-                        {nutrientdata.fat_saturated_g}g
+                        <strong>Saturated Fat: </strong>
+                        <u>{nutrientdata.fat_saturated_g}</u>g
                       </th>
                       <td>
                         <b>
@@ -104,8 +109,8 @@ export default function Nutrition() {
                       </td>
                     </tr>
                     <tr>
-                      <th colspan="2">
-                        <b>Cholesterol: </b>
+                      <th colSpan="2">
+                        <b><strong>Cholesterol: </strong></b>
                         <u>{nutrientdata.cholesterol_mg}</u>mg
                       </th>
                       <td>
@@ -118,7 +123,7 @@ export default function Nutrition() {
                       </td>
                     </tr>
                     <tr>
-                      <th colspan="2">
+                      <th colSpan="2">
                         <b>Sodium: </b>
                         <u>{nutrientdata.sodium_mg}</u>mg
                       </th>
@@ -132,7 +137,7 @@ export default function Nutrition() {
                       </td>
                     </tr>
                     <tr>
-                      <th colspan="2">
+                      <th colSpan="2">
                         <b>Total Carb: </b>
                         <u>{Math.round(`${nutrientdata.carbohydrates_total_g}`)}</u>g
                       </th>
@@ -147,7 +152,7 @@ export default function Nutrition() {
                       </td>
                     </tr>
                     <tr>
-                      <td class="blank-cell"></td>
+                      <td className="blank-cell"></td>
                       <th>
                         <b> Dietary Fiber:</b> 
                         <u>{Math.round(`${nutrientdata.fiber_g}`)}g</u>
@@ -159,15 +164,15 @@ export default function Nutrition() {
                       </td>
                     </tr>
                     <tr>
-                      <td class="blank-cell"></td>
-                      <th>
+                      <td className="blank-cell"></td>
+                      <th><strong>
                         Sugars:  
-                        <u>{Math.round((`${nutrientdata.sugar_g}`))}</u>g
+                        </strong><u>{Math.round((`${nutrientdata.sugar_g}`))}</u>g
                       </th>
                       <td></td>
                     </tr>
-                    <tr class="thick-end">
-                      <th colspan="2">
+                    <tr className="thick-end">
+                      <th colSpan="2">
                         <b>Protein: </b>
                         <u>{nutrientdata.protein_g}</u>g
                       </th>
@@ -180,6 +185,7 @@ export default function Nutrition() {
           })}
         </div>
       </Form>
+    </div>
     </div>
   );
 }

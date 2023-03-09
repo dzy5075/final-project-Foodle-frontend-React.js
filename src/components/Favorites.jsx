@@ -62,8 +62,8 @@ export default function Favorites({ loggedInUser, fetchSingleRecipe }) {
   
 
   return (
-    <div className="favorites-container">
-      <h1>My Favorite Recipes</h1>
+    <div id="favorites-container">
+      <h1 className= "favorites-header">My Favorite Recipes</h1>
       <div className="display-recipes">
         {userFavorites.map((favorite) => {
           return (

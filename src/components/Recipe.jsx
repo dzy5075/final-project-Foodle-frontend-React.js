@@ -10,7 +10,7 @@ export default function Recipe({ singleRecipe, addFavorite, loggedInUser }) {
   return (
     <div id="entire-recipe-container">
       <div class="recipe-header">
-        <h1>{singleRecipe.name}</h1>
+        <h1><u>{singleRecipe.name}</u></h1>
         <div id="recipe-btn">
         <button
           className="fav-delete-btn"
@@ -21,12 +21,14 @@ export default function Recipe({ singleRecipe, addFavorite, loggedInUser }) {
           {" "}
           Return to Search
         </button>
+        {loggedInUser ? 
         <button
           className="fav-delete-btn"
           onClick={() => addFavorite(loggedInUser, singleRecipe)}
         >
           Add to favorites
         </button>
+        : null }
         </div>
       </div>
 

@@ -60,10 +60,15 @@ export default function NeedsCalc() {
 
   return (
     <>
+        <div classname="needs-header">
+             <h1 className="check-daily"><strong><u>Check your daily needs</u></strong></h1>
+             <p className="check-daily">*For a healthy individual*</p>
+        </div>
       <div className="calculate-form">
         <div>
           <strong>Select Gender</strong>
         <select
+            className="input-box"
           name="Gender-select"
           onChange={(e) => {
             setGender(e.target.value);
@@ -77,19 +82,20 @@ export default function NeedsCalc() {
         </div>
         <div>
           <strong>Height in inches: </strong>
-          <input value={inches} onChange={onChange} placeholder="inches" />
+          <input className="input-box" value={inches} onChange={onChange} placeholder="inches" />
         </div>
         <div>
           <strong>Weight in Kilograms(kg), 1kg = 2.2lbs: </strong>
-          <input value={kg} onChange={onChange2} placeholder="kg" />
+          <input className="input-box" value={kg} onChange={onChange2} placeholder="kg" />
         </div>
         <div>
           <strong> Age: </strong>
-          <input value={age} onChange={onChange3} placeholder="years" />
+          <input className="input-box" value={age} onChange={onChange3} placeholder="years" />
         </div>
         <div>
           <strong>Activity Factor: </strong>
           <select
+            className="input-box"
             name="Af-select"
             onChange={(e) => {
               setAf(e.target.value);
