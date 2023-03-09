@@ -143,6 +143,7 @@ function App() {
             loggedInUser={loggedInUser}
             setLoggedInUser={setLoggedInUser}
             singleRecipe={singleRecipe}
+            fetchSingleRecipe={fetchSingleRecipe}
           />
         </>
       ),

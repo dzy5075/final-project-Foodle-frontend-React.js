@@ -109,17 +109,17 @@ export default function NeedsCalc() {
       <div className="display-needs">
         <h1>
           <strong>
-            <u>Display Needs(good estimate)</u>
+            <u>Display Needs(estimated)</u>
           </strong>
         </h1>
         {console.log(energy)}
         <h2>
-          Your energy needs:<u>{energy.toFixed(1)} kcals</u>
+          Your energy needs:<u> {energy.toFixed(1)} kcals</u>
         </h2>
         <h2>
-          Your protein needs:
+          Your protein needs: 
           <u>
-            {protein.toFixed(1)} to {(kg * 1.2).toFixed(1)}grams
+             {protein.toFixed(1)} to {(kg * 1.2).toFixed(1)}grams
           </u>
         </h2>
         <h2>

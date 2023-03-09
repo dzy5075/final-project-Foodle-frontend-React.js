@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Favorites({ loggedInUser }) {
+export default function Favorites({ loggedInUser, fetchSingleRecipe }) {
   const navigate = useNavigate();
 
   const [favoriteRecipe, setFavoriteRecipe] = useState([]);
@@ -25,9 +25,9 @@ export default function Favorites({ loggedInUser }) {
         "content-type": "application/json",
       },
     })
-      .then((res) => {window.location.reload()})
+      .then((res) => window.location.reload())
       .then(() => {
-        handleDeleteFavorite(favoriteRecipe);
+        setFavoriteRecipe(handleDeleteFavorite(favoriteRecipe));
         console.log("Deleted!");
       });
   }
@@ -73,8 +73,8 @@ export default function Favorites({ loggedInUser }) {
                 src={favorite.recipe.image}
                 onClick={(e) => {
                   console.log(favorite.recipe.id);
-                  fetchFavoriteRecipe(favorite.id);
-                  navigate("/recipe");
+                  fetchSingleRecipe(favorite.recipe.id);
+                  navigate("/recipes");
                 }}
                 alt=""
               ></img>

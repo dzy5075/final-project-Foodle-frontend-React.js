@@ -238,9 +238,19 @@ code {
 }
 
 .categoryfilter{
-margin-right: 10px;
-height: 30px;
-width: 150px;
+  width: 200px;
+  height: 27px;
+  background: var(--color-light);
+  padding: 0 1.6rem;
+  border-radius: var(--rad);
+  appearance: none;
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+  font-size: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
 
 }
 
@@ -256,8 +266,8 @@ width: 150px;
 
 .recipe{
   display: flexbox;
-  width: 400px;
-  height: 400px;
+  width: 20rem;
+  height: 23rem;
   float:left;
   gap:1rem;
   padding:1rem;
@@ -268,21 +278,35 @@ width: 150px;
   align-content: center;
 }
 .recipe > img{
-  height:300px;
-  width: 350px;
-  padding-left: 1.7rem;
+  height:15rem;
+  width: 18rem;
+  padding: 1rem;
   margin-top: 2px;
 }
 .recipe > figcaption{
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-family: Helvetica;
 }
 
+/* .video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+} */
 
 
 .fav-delete-btn{
-  margin-left: 140px;
+  margin-left: 3.7rem;
   margin-top: 0px;
 }
 
@@ -329,17 +353,34 @@ width: 150px;
   
 }
 
-.single-recipe>img{
-  width: 475px;
-  margin-left: 1rem;
+#recipe-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 18rem;
 }
+
+/* .single-recipe{
+  height: 4rem;
+  margin-left: 1rem;  
+} */
+
 
 #instructions {
   border: solid 3px black;
+  margin-top: 3rem;
+  padding: 1%;
 }
 
 #ingredients {
   border: solid 3px black;
+    background-color: white;
+    font-size: 20px;
+    margin-left: 55rem;
+    margin-top: -25rem;
+    padding: 15px;
+    border-style: groove;
+    align-items: flex-start;
+    box-shadow: 1px 1px 8px 1px #dcdcdc;
 }
 
 .nav-bar{
@@ -355,7 +396,11 @@ width: 150px;
 
 .display-needs {
   margin-top: 20px;
-  border: solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 20rem;
+  padding: 0%;
 }
 /* ---------------------------------------------------------------- */
 .form-container {
