@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Foodle - Your Personalized Food and Recipe App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Foodle Logo](public/Foodle-Logo.png)
 
-## Available Scripts
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-In the project directory, you can run:
+Welcome to Foodle, your personalized food and recipe app! With Foodle, you can discover new recipes, save your favorites, and share them with your friends. Our app is designed to cater to your specific dietary needs and preferences, making it easier than ever to enjoy delicious meals at home.
 
-### `npm start`
+Visit our live app: [Foodle Web App](https://foodle.example.com)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Table of Contents**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Features](#features)
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Browse Recipes:** Explore a variety of recipes from different cuisines, tailored to your dietary preferences and restrictions.
+- **Personalized Recommendations:** Receive personalized recipe recommendations based on your taste preferences, dietary restrictions, and favorite ingredients.
+- **Save & Organize:** Save your favorite recipes, and organize them into collections for easy access.
+- **Shopping List:** Automatically generate shopping lists for recipes, making grocery shopping a breeze.
+- **Responsive Design:** Foodle is fully responsive, ensuring a great experience on desktop devices.
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get Foodle up and running locally, you will need to clone the frontend repository and follow the steps below:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clone the repository**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/dzy5075/final-project-Foodle-frontend.git
+```
 
-### `npm run eject`
+2. **Navigate to the project directory**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+cd final-project-Foodle-frontend
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Install dependencies**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. **Start the development server**
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The app should now be running at `http://localhost:3000/`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Please note that Foodle's frontend is built using React and requires a backend API for full functionality. You can find the backend repository [here](https://github.com/dzy5075/final-project-Foodle-backend).
 
-### Code Splitting
+## Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **Register an account:** Create a free Foodle account by providing your email, username, and password.
+2. **Set your preferences:** Complete your user profile by specifying dietary preferences, restrictions, and favorite ingredients.
+3. **Browse recipes:** Explore recipes and get personalized recommendations based on your preferences.
+4. **Save & Organize:** Add recipes to your favorites, and create collections to keep your recipes organized.
+5. **Share the love:** Share your favorite recipes with your friends and family using the built-in sharing options.
 
-### Analyzing the Bundle Size
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+We welcome contributions to Foodle! If you would like to contribute, please follow these steps:
 
-### Making a Progressive Web App
+1. Fork the project repository.
+2. Create a new branch for your feature or bugfix.
+3. Commit your changes and push the branch to your fork.
+4. Create a pull request, providing a clear description of your changes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+For more detailed information, please read our [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Foodle is released under the [MIT License](LICENSE).
