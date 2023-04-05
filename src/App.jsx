@@ -119,7 +119,6 @@ function App() {
         </>
       ),
     },
-    ,
     {
       path: `/recipes`,
       element: (
